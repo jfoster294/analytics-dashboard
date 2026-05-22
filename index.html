@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Analytics Dashboard | Joel Foster</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <nav class="top-nav">
+        <a href="https://jfoster294.github.io/portfolio-site/" class="back-link">← Portfolio</a>
+        <p>Analytics Dashboard</p>
+      </nav>
+
+      <section class="hero-content">
+        <p class="eyebrow">Business Dashboard</p>
+        <h1>Track revenue, users, orders, and performance.</h1>
+        <p>
+          View business metrics, filter data, scan charts, and review sales activity
+          in a clean responsive dashboard layout.
+        </p>
+      </section>
+    </header>
+
+    <section class="filters-card">
+      <div>
+        <label for="periodFilter">Time Period</label>
+        <select id="periodFilter">
+          <option value="All">All Time</option>
+          <option value="30 Days">Last 30 Days</option>
+          <option value="90 Days">Last 90 Days</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="categoryFilter">Category</label>
+        <select id="categoryFilter">
+          <option value="All">All Categories</option>
+          <option value="Software">Software</option>
+          <option value="Hardware">Hardware</option>
+          <option value="Services">Services</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <p>Total Revenue</p>
+        <h2 id="revenueTotal">$0</h2>
+        <span id="revenueChange">Updated from filters</span>
+      </article>
+
+      <article class="stat-card">
+        <p>Total Users</p>
+        <h2 id="usersTotal">0</h2>
+        <span id="usersChange">Updated from filters</span>
+      </article>
+
+      <article class="stat-card">
+        <p>Total Orders</p>
+        <h2 id="ordersTotal">0</h2>
+        <span id="ordersChange">Updated from filters</span>
+      </article>
+
+      <article class="stat-card">
+        <p>Avg Conversion</p>
+        <h2 id="conversionRate">0%</h2>
+        <span id="conversionChange">Updated from filters</span>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="chart-card">
+        <div class="card-header">
+          <div>
+            <h2>Revenue Trend</h2>
+            <p>Monthly revenue after filters</p>
+          </div>
+        </div>
+
+        <svg id="lineChart" class="line-chart" viewBox="0 0 300 130" preserveAspectRatio="none"></svg>
+      </article>
+
+      <article class="chart-card">
+        <div class="card-header">
+          <div>
+            <h2>Orders by Category</h2>
+            <p>Sales volume breakdown</p>
+          </div>
+        </div>
+
+        <div id="barChart" class="bar-chart"></div>
+      </article>
+    </section>
+
+    <section class="table-card">
+      <div class="card-header">
+        <div>
+          <h2>Sales Activity</h2>
+          <p id="tableMessage">Showing dashboard data</p>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Category</th>
+              <th>Revenue</th>
+              <th>Users</th>
+              <th>Orders</th>
+              <th>Conversion</th>
+            </tr>
+          </thead>
+
+          <tbody id="salesTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="emptyState" class="empty-state">
+      <h2>No data found</h2>
+      <p>Try changing the time period or category filter.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
